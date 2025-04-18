@@ -68,6 +68,7 @@ stages:
         orchestratorConnection: Orchestrator  # Update this to a service connection for your Orchestrator.
         packagesPath: '$(Pipeline.Workspace)\drop'
         folderName: ${{ parameters.folderName }}
+        traceLevel: Verbose
 
 - stage: Assest
   displayName: Create Assests
