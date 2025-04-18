@@ -35,7 +35,8 @@ stages:
 - stage: Build
   jobs:
   - job: BuildJob
-    pool:  vmImage: 'windows-latest'
+    pool:  
+      vmImage: 'windows-latest'
     workspace:
       clean: all
     steps:
