@@ -35,7 +35,7 @@ stages:
 - stage: Build
   jobs:
   - job: BuildJob
-    pool:  Azure Pipelines # Update this if using dedicated build pool
+    pool:  vmImage: 'windows-latest'
     workspace:
       clean: all
     steps:
