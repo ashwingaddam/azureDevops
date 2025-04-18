@@ -46,7 +46,7 @@ stages:
       inputs:
         versionType: ${{ parameters.versioningStrategy }}
         projectJsonPath: '$(Build.SourcesDirectory)\${{ parameters.projectPath }}'
-        orchestratorConnection: Orchestrator-Dev-Default  # Update this to a service connection for your Orchestrator.
+        orchestratorConnection: Orchestrator  # Update this to a service connection for your Orchestrator.
         outputPath: '$(Build.ArtifactStagingDirectory)\Output'
     # Publish the nuget package for later stages.
     - publish: $(Build.ArtifactStagingDirectory)\Output
