@@ -54,7 +54,8 @@ stages:
   displayName: Create Assests
   jobs:
     - job: CreateAssests
-      pool: Azure Pipelines  # Update this if using dedicated build pool
+      pool:
+        vmImage: 'windows-latest'
       steps:
       - task: UiPathAssets@2
         inputs:
@@ -69,7 +70,8 @@ stages:
   condition: succeeded()
   jobs:
     - job: TestDEV
-      pool: Azure Pipelines
+      pool:
+        vmImage: 'windows-latest'
       steps:
         - task: UiPathTest@2
           inputs:
