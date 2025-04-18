@@ -56,7 +56,7 @@ stages:
 # Deploy to the Test environment on commits to any release* branch.
 # Note that this stage has no environment defined, and won't have approvals.
 # For Test environment approvals, update this to look like the Prod stage, but with using the Test environment.
-- stage: DeployToTest
+- stage: Deploy
   condition: and(succeeded('Build'), startsWith(variables['Build.SourceBranchName'], 'develop'))  # Only run if the packaging succeeded and we are on a development* branch.
   jobs:
   - job: DeployToTestJob
