@@ -59,7 +59,7 @@ stages:
 - stage: Deploy
   condition: and(succeeded('Build'), startsWith(variables['Build.SourceBranchName'], 'develop'))  # Only run if the packaging succeeded and we are on a development* branch.
   jobs:
-  - job: DeployToTestJob
+  - job: DeployJob
     pool:
       vmImage: 'windows-latest'
     workspace:
@@ -90,7 +90,7 @@ stages:
 
 - stage: Testing
   displayName:  Test After Publish
-  dependsOn: DeployToTest
+  dependsOn: Deploy
   condition: succeeded()
   jobs:
     - job: TestDEV
