@@ -44,6 +44,7 @@ stages:
         projectJsonPath: '$(Build.SourcesDirectory)\${{ parameters.projectPath }}'
         orchestratorConnection: Orchestrator  # Update this to a service connection for your Orchestrator.
         outputPath: '$(Build.ArtifactStagingDirectory)\Output'
+        runWorkflowAnalysis: 'False'  # Update this to a run workflow analysis.
     # Publish the nuget package for later stages.
     - publish: $(Build.ArtifactStagingDirectory)\Output
       artifact: drop
