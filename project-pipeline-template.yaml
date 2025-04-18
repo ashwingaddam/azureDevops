@@ -19,11 +19,6 @@ parameters:
 - name: 'versioningStrategy'
   default: 'CurrentVersion'
   type: string
-# The environments to update the package version to the deployed version. 
-# Not required for modern folders or if you do not want to update the package version.
-- name: 'environments'
-  default: ''
-  type: string
 # The name of the testSet to be executed 
 - name: 'testSet'
   default: 'AzureDevOpsDemo_Tests'
@@ -40,7 +35,7 @@ stages:
     workspace:
       clean: all
     steps:
-    - script: 'echo project path: ${{ parameters.projectPath }}, folder name: ${{ parameters.folderName }}, versioning strategy: ${{ parameters.versioningStrategy }}, environments: ${{ parameters.environments }}'
+    - script: 'echo project path: ${{ parameters.projectPath }}, folder name: ${{ parameters.folderName }}, versioning strategy: ${{ parameters.versioningStrategy }}'
       displayName: Log parameters
     - task: UiPathInstallPlatform@2  # This installs required exes. Not necessary if using a dedicated build machine.
     - task: UiPathPack@2
@@ -73,7 +68,6 @@ stages:
         orchestratorConnection: Orchestrator  # Update this to a service connection for your Orchestrator.
         packagesPath: '$(Pipeline.Workspace)\drop'
         folderName: ${{ parameters.folderName }}
-        # environments: ${{ parameters.environments }}
 
 - stage: Assest
   displayName: Create Assests
